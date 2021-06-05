@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    environment:
+      - MONGO_INITDB_DATABASE=dev-teste
+    ports:
+      - 27017:27017
+    restart: unless-stopped
+    networks:
+      - dev-network
+
+  mongo-seed:
+    build: ./mongo-seed
+    links:
+      - mongodb
+    depends_on:
+      - mongodb
+    networks:
+      - dev-network
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongodb-express
+    ports:
+      - 8081:8081
+    restart: unless-stopped
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+    depends_on:
+      - mongodb
+    networks:
+      - dev-network
+
+networks:
+  dev-network:
