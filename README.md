@@ -18,7 +18,7 @@
 ### Na sua IDE:
 - Executar método main da classe DemoApplication.
 
-####Se acontecer algum problema até aqui favor me comunicar para verificar o motivo.
+*Se acontecer algum problema até aqui favor me comunicar para verificar o motivo.*
 
 ### Com a aplicação rodando
 - É possível acessar as duas api's via open api (swagger) via http://localhost:8180/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config
