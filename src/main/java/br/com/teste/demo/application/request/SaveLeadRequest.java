@@ -7,6 +7,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SaveLeadRequest implements Serializable {
@@ -33,6 +34,7 @@ public class SaveLeadRequest implements Serializable {
     private String userId;
 
     public SaveLeadRequest() {
+        this.phones = new ArrayList<>();
     }
 
     public SaveLeadRequest(@NotBlank String name, @NotBlank @Email String email, @NotBlank String company, String site, @NotEmpty List<LeadPhoneDTO> phones, LeadSituation status, String annotations, String userId) {

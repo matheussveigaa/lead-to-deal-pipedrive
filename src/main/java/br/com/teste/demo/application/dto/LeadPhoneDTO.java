@@ -10,6 +10,14 @@ public class LeadPhoneDTO implements Serializable {
     @NotBlank
     private String number;
 
+    public LeadPhoneDTO() {
+    }
+
+    public LeadPhoneDTO(@NotBlank String code, @NotBlank String number) {
+        this.code = code;
+        this.number = number;
+    }
+
     public String getCode() {
         return code;
     }
