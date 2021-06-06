@@ -10,7 +10,6 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -53,12 +52,10 @@ public class LeadRepositoryImpl implements LeadRepository {
     }
 
     @Override
-    public List<Lead> findLeadsBySituation(LeadSituation situation) {
-        if(situation == null)
-            return new ArrayList<>();
+    public List<Lead> findLeadsToPromote() {
 
         var query = new Query();
-        query.addCriteria(Criteria.where("status").is(situation.name()));
+        query.addCriteria(Criteria.where("status").is(LeadSituation.WON).and("promotedAt").exists(false));
 
         return mongoTemplate.find(query, Lead.class, defaultCollection);
     }
