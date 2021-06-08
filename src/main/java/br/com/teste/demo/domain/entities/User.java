@@ -8,7 +8,7 @@ public class User implements Serializable {
     private String id;
 
     @NotBlank
-    private String nome;
+    private String name;
 
     @NotBlank
     @Email
@@ -22,12 +22,12 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
